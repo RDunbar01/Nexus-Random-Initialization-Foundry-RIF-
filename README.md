@@ -1,5 +1,55 @@
 # Nexus Random Initialization Foundry
 
+## Created with AI-assisted coding
+
+**Built through hundreds of iterations using a build–measure–learn process.**
+
+I created Nexus Random Initialization Foundry using **AI-assisted coding**. I directed the ideas, architecture and development priorities, working with AI to implement, debug, review and refine the application through **hundreds of build–measure–learn iterations**.
+
+**Build → Measure → Learn → Refine → Repeat**
+
+This iterative development process is central to how Foundry was created. It builds on my work with a **custom web-based inference engine, WebGPU and adapter-training tools**, with the goal of making language-model creation easier to understand and explore.
+
+## Why I built Foundry
+
+### Making model creation more approachable
+
+I built Foundry because **creating an LLM felt shrouded in mystery**. I wanted to simplify the process and make it easier to explore: create a model, prepare a corpus, train it, inspect the results, and understand what changed.
+
+My approach was to bring together the experience and tools I had developed across Nexus, including **my custom web-based inference engine, WebGPU work, and adapter-training programs**. That foundation helped shape Foundry's browser-based workflow and the way its model, training and interface components fit together.
+
+The lightweight release documented here focuses on full-model dense training and native binary-factor training. The separate adapter-training tools have their own compatibility requirements; their capabilities are not automatically included in this build.
+
+### Coded with AI through hundreds of iterations
+
+**I coded Foundry with AI assistance**, directing the project, choosing its goals and making the design and integration decisions. AI helped with implementation, debugging, code review, documentation and test development.
+
+This was a process of hundreds of **build–measure–learn iterations**, rather than a single prompt producing a finished application:
+
+| Stage | How I applied it |
+|---|---|
+| **Build** | Turn an idea into a working feature, experiment or targeted repair. |
+| **Measure** | Inspect behavior, numerical checks, failures and feedback. |
+| **Learn** | Identify what worked, what remained unclear and what needed to change. |
+| **Repeat** | Refine the implementation and check for regressions. |
+
+Using AI helped me explore complex ideas and reduce repetitive implementation work. It did not remove the need to understand the application, review changes or test its behavior. The validation evidence and limitations below describe what this particular release establishes.
+
+### Why HTML and a monolithic deliverable
+
+For my workflow, the traditional EXE-first approach feels dated. I prefer HTML because I find it more streamlined for building and refining a custom graphical interface.
+
+A **single-file, monolithic HTML deliverable** also suits how I work with AI: the interface and application behavior can be considered together, making it easier to share context and trace interconnected changes.
+
+The maintained source remains organized into editable components, including `src/foundry.js`, and the builder combines those components into the standalone HTML application. Single-file delivery and structured development source serve different purposes.
+
+This is my development preference, rather than a claim that native executables are technically obsolete. Browser-based applications still have hardware, memory, security and compatibility limits.
+
+My goal is to make the path from an idea to a model experiment more understandable, using tools people can inspect, adjust and run on their own hardware.
+
+---
+
+
 **RIF · Repaired lightweight edition · Technical and research documentation · 9 October 2026**
 
 Nexus Random Initialization Foundry (RIF) is a local, browser-based environment for constructing small causal language models, training their parameters with WebGPU, inspecting development loss, saving resumable checkpoints, and exporting model weights. It provides two experimental routes: a dense transformer and a transformer whose weight matrices are represented by trainable binary latent factors and scaling vectors.
@@ -10,6 +60,7 @@ This README uses the new product name while documenting the existing, hash-ident
 
 ## Contents
 
+- [Why I built Foundry](#why-i-built-foundry)
 - [Quick start](#quick-start)
 - [Capabilities and implementation scope](#capabilities-and-implementation-scope)
 - [Architecture and tokenizer](#architecture-and-tokenizer)
