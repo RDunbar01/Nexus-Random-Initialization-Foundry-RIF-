@@ -1,10 +1,12 @@
 # Nexus Random Initialization Foundry — ホーム
 
-## [ブラウザーで試す](<https://rdunbar01.github.io/Nexus-Random-Initialization-Foundry-RIF-/Nexus_Random_Initialization_Foundry_v2_9_Browser.html>) · 公開設定待ち
+## [ブラウザーで試す](<https://rdunbar01.github.io/Nexus-Random-Initialization-Foundry-RIF-/Nexus_Random_Initialization_Foundry_v2_9_Browser.html>) · ブラウザー入口を公開済み
 
-このリリースの Pages はまだ有効化・検証されていません。これは公開予定の HTTPS アドレスであり、現在利用できる試用版ではありません。GitHub の HTML ソース表示ではアプリは実行されません。
+HTTPS のブラウザー入口を公開し、初期画面を確認しました。WebGPU・Windows・Radeon の全ワークロード検証ではありません。GitHub の HTML ソース表示ではアプリは実行されません。
 
-公開後、リンクを開いて **Check WebGPU adapter** を選択してください。最初の10秒で目指すのは UI とブラウザー機能の確認であり、モデルのダウンロード完了や学習・推論の保証ではありません。読み込み時間は回線と端末に依存します。
+ネイティブ **2.9.1** パッケージは main で公開済みです。この起動時の修正により、ネイティブのタイトル更新が UI タイマーを占有しなくなりました。ブラウザー試用版は変更のない **2.9 エディション**です。 以前のリリースは保持されていますが、部品を混在させないでください。パッケージのレビューと展開テストには合格しています。実機 Windows・WebView2・Radeon およびフルモデルの検証は未完了です。
+
+リンクを開いて **Check WebGPU adapter** を選択してください。最初の10秒で目指すのは UI とブラウザー機能の確認であり、モデルのダウンロード完了や学習・推論の保証ではありません。読み込み時間は回線と端末に依存します。
 
 **HTML 試用版に Python は不要です。ネイティブ PyTorch バックエンドには完全なダウンロードが必要です。** 同じリリースの Python インストーラーとすべての分割データを一緒に保持してください。HTML 内で Python や PyTorch は実行されません。WebGPU 対応、ローカル入力、モデル互換性の確認は別途必要です。
 
@@ -16,11 +18,11 @@
 
 実機 Windows・WebView2・Radeon およびフルモデルの検証は未完了です。ヘルパーの条件やテスト成功は、すべての処理負荷への対応を証明しません。
 
-**2.9.0 · 日本語**
+**2.9.1 · 日本語**
 
-このページは次期リリースに向けたレビュー用の Wiki 原稿です。公開 Wiki やブラウザー試用版がすでに公開されていることを意味しません。
+公開リリースのドキュメントです。下記の検証範囲と制限を確認してください。
 
-[English](Home.md) · [Français](Home.fr.md) · [日本語](Home.ja.md) · [한국어](Home.ko.md)
+[English](https://github.com/RDunbar01/Nexus-Random-Initialization-Foundry-RIF-/wiki/Home) · [Français](https://github.com/RDunbar01/Nexus-Random-Initialization-Foundry-RIF-/wiki/Home.fr) · [日本語](https://github.com/RDunbar01/Nexus-Random-Initialization-Foundry-RIF-/wiki/Home.ja) · [한국어](https://github.com/RDunbar01/Nexus-Random-Initialization-Foundry-RIF-/wiki/Home.ko)
 
 ## 目的
 
@@ -30,13 +32,13 @@
 
 ### ブラウザー版
 
-[HTML](../../Nexus_Random_Initialization_Foundry_v2_9_Browser.html) · [README](../../README.md)
+[HTML](https://github.com/RDunbar01/Nexus-Random-Initialization-Foundry-RIF-/blob/main/Nexus_Random_Initialization_Foundry_v2_9_Browser.html) · [README](https://github.com/RDunbar01/Nexus-Random-Initialization-Foundry-RIF-/blob/main/README.md)
 
 HTTPS または対応する安全な localhost オリジンで、WebGPU 対応ブラウザーを使用してください。単一 HTML に独自の JavaScript/WGSL エンジンが含まれます。対応するローカルファイルを読み込んでください。Python、PyTorch、ネイティブサービス、オンラインデータセットの取得、ネイティブ GPU テレメトリーは利用できず、実行時のネットワーク要求は遮断されます。GitHub のソース表示画面ではアプリは実行されません。
 
 ### インストール版
 
-リリース ZIP 全体を展開し、インストーラーとすべてのデータ分割ファイルを同じ構成で保持してください。配布する各コンポーネントは 20,000,000 バイト未満ですが、復元後のファイルやダウンロードするモデルはこれを超える場合があります。対応するパッケージのマニフェストとインストール内容の概要に従ってください。ネイティブ PyTorch の設定とテストはインストール版の機能であり、HTML 単体版の機能ではありません。
+[2.9.1 パッケージ](https://github.com/RDunbar01/Nexus-Random-Initialization-Foundry-RIF-/tree/main/releases/2.9.1)のすべてのファイルを、配布時の構成を保って一緒にダウンロードしてください。番号付きのすべての `.nxd` データパーツを [Start_Nexus.py](https://github.com/RDunbar01/Nexus-Random-Initialization-Foundry-RIF-/blob/main/releases/2.9.1/Start_Nexus.py) と同じ場所に置き、対応する Python で `python Start_Nexus.py` を実行します。同意前に[対応するガイド](https://github.com/RDunbar01/Nexus-Random-Initialization-Foundry-RIF-/blob/main/releases/2.9.1/README.md)とインストール内容の概要を確認してください。各 `.nxd` パーツは **10,000,000 バイト以下**、インストール前の配布ファイルは1個あたり **20,000,000 バイト未満**です。アーカイブ全体、復元後のアプリ、インストール済みファイル、ダウンロードするモデルはこれを超える場合があります。異なるリリースを混在させないでください。ネイティブ PyTorch の設定・テストはインストール版の機能であり、HTML 単体の試用版の機能ではありません。
 
 ## 測定結果と制限
 
@@ -51,3 +53,4 @@ Rich Dunbar / Nexus Emerging Technology による、AI 支援コーディング�
 ## 現行リリースのライセンス
 
 この Nexus リリースは Apache License 2.0 では提供されません。Nexus が権利を持つソフトウェアは、個人的かつ非商用の目的に限り使用できます。商用利用を含むその他の利用、改変または再配布には、権利者の明示的な書面による同意が必要です。第三者のコード、モデル、データセットおよび別途ライセンスされた構成要素には、それぞれのライセンスと表示が引き続き適用されます。既に付与された権利および法律上制限できない権利は変更されません。
+
