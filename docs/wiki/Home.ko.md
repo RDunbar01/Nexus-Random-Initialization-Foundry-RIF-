@@ -1,5 +1,21 @@
 # Nexus Random Initialization Foundry — 홈
 
+## [브라우저에서 체험하기](<https://rdunbar01.github.io/Nexus-Random-Initialization-Foundry-RIF-/Nexus_Random_Initialization_Foundry_v2_9_Browser.html>) · 활성화 대기 중
+
+이 릴리스의 Pages는 아직 활성화되거나 검증되지 않았습니다. 이 링크는 예정된 HTTPS 실행 주소이며 현재 제공되는 체험판이 아닙니다. GitHub에서 HTML 소스를 보는 것만으로 앱이 실행되지는 않습니다.
+
+게시 후 링크를 열고 **Check WebGPU adapter**를 선택하세요. 처음 10초의 목표는 UI와 브라우저 기능을 확인하는 것이며, 모델 다운로드 완료나 학습·추론을 보장하는 것이 아닙니다. 로딩 시간은 연결 상태와 기기에 따라 달라집니다.
+
+**HTML 체험판에는 Python이 필요하지 않습니다. 네이티브 PyTorch 백엔드에는 전체 다운로드가 필요합니다.** 같은 릴리스의 Python 설치 프로그램과 모든 데이터 조각을 함께 보관하세요. HTML 안에서 Python이나 PyTorch는 실행되지 않습니다. WebGPU 지원, 로컬 입력 파일 및 모델 호환성 확인은 별도로 필요합니다.
+
+## Python 및 네이티브 실행 환경 요구 사항
+
+- **권장 버전은 표준 64비트 CPython 3.12입니다.** 설치 프로그램은 **Python 3.11–3.14**를 안내하지만 부트스트랩이 이 범위를 강제하지는 않습니다. 다른 버전에서 열린다고 네이티브 호환성이 확인되는 것은 아닙니다.
+- **Foundry 설치 프로그램은 호환되는 기존 PyTorch 런타임만 재사용합니다.** `--runtime`으로 지정하세요. 새 계산 런타임을 자동 설치하지 않습니다. 선택한 Python은 PyTorch wheel과 일치하고 포함된 네이티브 검사를 통과해야 합니다. 재사용 경로에는 별도의 숫자형 Python 버전 제한이 없으므로 소스만으로 이전 버전의 동작을 단정할 수 없습니다.
+- 검사는 **PyTorch 2.14.0+rocm10.1.0**, HIP, 설정된 RX 7900 XT/XTX를 요구하며 FP32 순전파·역전파의 유한한 결과를 확인합니다. 포함된 의존성 도우미를 별도로 실행하여 새로 설치할 경우에는 free-threaded가 아닌 표준 x64 CPython **3.11–3.14** 및 Windows 11 **25H2**가 필요합니다. 일반 Foundry 설치 프로그램은 Python, GPU 드라이버, 컴파일러를 설치하지 않습니다. [AMD 공식 호환성 표](https://rocm.docs.amd.com/en/latest/compatibility/compatibility-matrix.html)를 참조하세요.
+
+실제 Windows, WebView2, Radeon 및 전체 모델 검증은 아직 완료되지 않았습니다. 도우미의 조건이나 검사 통과가 모든 작업의 지원을 입증하지는 않습니다.
+
 **2.9.0 · 한국어**
 
 이 페이지는 다음 릴리스를 위한 검토용 Wiki 원고입니다. 공개 Wiki나 브라우저 체험판이 이미 게시되었다는 뜻은 아닙니다.

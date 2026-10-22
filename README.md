@@ -1,5 +1,13 @@
 # Nexus Random Initialization Foundry
 
+## [Try in your browser](<https://rdunbar01.github.io/Nexus-Random-Initialization-Foundry-RIF-/Nexus_Random_Initialization_Foundry_v2_9_Browser.html>) · pending activation
+
+**Pages is not activated or verified for this release yet.** The link above is its planned HTTPS launch address, not a claim that a live trial is available. The exact [single-file HTML](./Nexus_Random_Initialization_Foundry_v2_9_Browser.html) is in the repository root; GitHub's source viewer does not execute it.
+
+Once published, open the link and choose **Check WebGPU adapter** to inspect the interface and browser capability. The first-10-seconds goal is to reach the UI and check capability, not to download a model, finish training or guarantee inference. Load time depends on your connection and device.
+
+**Browser trial: no Python required. Native PyTorch backend: full download required.** Download every component in [releases/2.9.0](releases/2.9.0/), not just the HTML or installer. The browser does not contain or run Python/PyTorch. See [Python and native runtime requirements](#python-and-native-runtime-requirements).
+
 ## Current release licensing
 
 This Nexus release is not offered under Apache License 2.0. Nexus-owned software may be used only for personal, non-commercial purposes. Any other use, including commercial use, modification or redistribution, requires express written consent from the rights holder. Third-party code, models, datasets and separately licensed components retain their own licenses and notices. Previously granted rights and rights that cannot lawfully be restricted remain unchanged.
@@ -19,13 +27,13 @@ The green translucent progress dashboard and unified saveable log are retained. 
 
 The desktop release is packaged with the Nexus AI-style installer: a consolidated change summary, one installation confirmation, determinate progress and reuse of compatible existing dependencies. Only verified completion should trigger app launch and installer closure; Windows launch behavior requires its own acceptance test.
 
-## Browser trial: staged, not yet published
+## Browser capabilities and limits
 
-[Open the single-file browser edition](./Nexus_Random_Initialization_Foundry_v2_9_Browser.html). This relative link names the bundled HTML source; GitHub's file viewer does not execute it. An instant browser-trial link will be added only after an HTTPS Pages deployment has been approved and verified. No live deployment is claimed here.
+Explore model initialization, local training controls and the live progress/log interface. Use supported local corpus/model inputs for actual work.
 
-Use a compatible browser with WebGPU on HTTPS or a supported secure localhost origin. Select local inputs through the file pickers. The edition includes its JavaScript, CSS and WGSL kernels in one HTML file, with no runtime CDN dependency. Online dataset downloads, server model bridges, Python, PyTorch and native hardware monitoring are not available in this browser-only build. Runtime network requests are blocked. External documentation links are opened only when selected.
+Use a compatible WebGPU browser on HTTPS or a supported secure localhost origin. The single file includes its JavaScript, CSS and WGSL kernels without a runtime CDN dependency. Browser GPU work uses the custom JavaScript/WebGPU engine, not PyTorch. Online dataset downloads, server model bridges and native hardware monitoring are unavailable; runtime network requests are blocked. External documentation links open only when selected.
 
-GPU API availability is not a successful arithmetic test or proof that a model fits. Physical Windows 11/Radeon/WebGPU execution remains a separate qualification step.
+A WebGPU API or adapter check is not a successful arithmetic test, a model-fit result or a performance measurement. Physical Windows 11/Radeon/WebGPU execution remains a separate qualification step.
 
 ## Desktop package and installation
 
@@ -33,11 +41,13 @@ The complete installer component set is in [releases/2.9.0](releases/2.9.0/). Do
 
 Final packaging and isolated extraction checks passed independent review. Physical Windows, WebView2 and Radeon runtime qualification remains pending; no hardware acceptance or live deployment is claimed.
 
-### Desktop prerequisites
+## Python and native runtime requirements
 
-The current AMD installer gate targets Windows 11 **25H2**, an existing compatible AMD driver, and standard x64 CPython **3.11–3.14**. Do not generalize this gate to every Windows 11 release. Physical Windows/WebView2/Radeon acceptance remains pending. No global drivers, compiler or PATH changes are part of this installer.
+- **Recommended launcher: standard 64-bit CPython 3.12.** The installer advertises **Python 3.11–3.14**, but the bootstrap itself does not enforce that range. Opening it on another version does not establish native compatibility.
+- **This Foundry installer reuses an existing compatible PyTorch runtime only.** Select it with `--runtime`. It does not automatically install a new compute runtime. The selected Python must match its PyTorch wheels and pass the bundled native probe; the reuse path has no independent numeric Python-version gate. A passing older interpreter cannot be inferred from source alone.
+- The native probe expects **PyTorch 2.14.0+rocm10.1.0**, HIP and the configured RX 7900 XT/XTX, and checks finite FP32 forward/backward results. The packaged optional dependency helper, if separately invoked, has a narrower installation gate: standard non-free-threaded x64 CPython **3.11–3.14**, Windows 11 **25H2**. Python, GPU drivers and compilers are not installed by the normal Foundry installer. See the [official AMD matrix](https://rocm.docs.amd.com/en/latest/compatibility/compatibility-matrix.html).
 
-Foundry reuses an existing compatible runtime only; `--runtime` selects its path. Its private `.nexus-alpha` state remains beside the extracted package. It does not silently install a new PyTorch runtime.
+Native Windows, WebView2, Radeon and full-model qualification remains pending. The helper’s gate and a successful runtime probe are not proof that every workload is supported.
 
 ## Measurement and validation
 

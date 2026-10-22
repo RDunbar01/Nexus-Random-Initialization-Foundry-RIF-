@@ -1,5 +1,21 @@
 # Nexus Random Initialization Foundry — Accueil
 
+## [Essayer dans le navigateur](<https://rdunbar01.github.io/Nexus-Random-Initialization-Foundry-RIF-/Nexus_Random_Initialization_Foundry_v2_9_Browser.html>) · activation en attente
+
+Pages n’est pas encore activé ni vérifié pour cette version. Il s’agit de l’adresse HTTPS prévue, pas d’un essai actuellement en ligne. L’affichage du fichier HTML dans GitHub n’exécute pas l’application.
+
+Après publication, ouvrez le lien et choisissez **Check WebGPU adapter**. L’objectif des dix premières secondes est d’examiner l’interface et les capacités du navigateur, pas de télécharger un modèle ni de garantir l’entraînement ou l’inférence. Le chargement dépend de la connexion et de l’appareil.
+
+**L’essai HTML ne nécessite pas Python. Le moteur PyTorch natif exige le téléchargement complet.** Gardez l’installateur Python et toutes les parties de données de la même version ensemble. Python et PyTorch ne s’exécutent pas dans le HTML. La prise en charge de WebGPU, les fichiers locaux et les contrôles de compatibilité du modèle restent nécessaires.
+
+## Versions de Python et environnement natif
+
+- **Interpréteur conseillé : CPython 3.12 standard, 64 bits.** L’installateur annonce **Python 3.11–3.14**, sans imposer cette plage dans son programme de démarrage. L’ouverture avec une autre version ne valide pas le moteur natif.
+- **L’installateur Foundry réutilise uniquement un environnement PyTorch compatible existant**, sélectionné avec `--runtime`. Il n’installe pas automatiquement un nouvel environnement de calcul. Le Python choisi doit correspondre à ses paquets PyTorch et réussir le test natif ; cette réutilisation n’applique pas de plage numérique distincte à Python. Le code seul ne permet pas d’affirmer qu’une version plus ancienne fonctionne.
+- Le test exige **PyTorch 2.14.0+rocm10.1.0**, HIP et le RX 7900 XT/XTX configuré, puis contrôle des résultats FP32 avant/arrière finis. L’utilitaire de dépendances fourni, s’il est invoqué séparément, exige pour une nouvelle installation CPython standard x64 **3.11–3.14**, sans mode free-threaded, et Windows 11 **25H2**. L’installateur normal Foundry n’installe ni Python, ni pilotes GPU, ni compilateurs. Voir la [matrice officielle AMD](https://rocm.docs.amd.com/en/latest/compatibility/compatibility-matrix.html).
+
+La validation Windows, WebView2, Radeon et modèle complet reste en attente. Les restrictions de l’utilitaire et la réussite du test ne prouvent pas la prise en charge de toutes les charges de travail.
+
 **2.9.0 · Français**
 
 Cette page est la source du wiki à relire pour la prochaine version. Elle ne signifie pas que le wiki public ou la version d’essai en ligne est déjà publié.
