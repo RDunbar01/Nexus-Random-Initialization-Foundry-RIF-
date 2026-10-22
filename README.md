@@ -6,7 +6,7 @@
 
 Open the link and choose **Check WebGPU adapter** to inspect the interface and browser capability. The first-10-seconds goal is to reach the UI and check capability, not to download a model, finish training or guarantee inference. Load time depends on your connection and device.
 
-**Browser trial: no Python required. Native PyTorch backend: full download required.** Download every component in [releases/2.9.0](releases/2.9.0/), not just the HTML or installer. The browser does not contain or run Python/PyTorch. See [Python and native runtime requirements](#python-and-native-runtime-requirements).
+**Browser trial: no Python required. Native PyTorch backend: full download required.** Download every component in [releases/2.9.1](releases/2.9.1/), not just the HTML or installer. The browser does not contain or run Python/PyTorch. See [Python and native runtime requirements](#python-and-native-runtime-requirements).
 
 ## Current release licensing
 
@@ -15,7 +15,9 @@ This Nexus release is not offered under Apache License 2.0. Nexus-owned software
 
 > The reviewed source and installer components are published on the main branch, including the self-contained browser HTML. The browser trial linked above is published on GitHub Pages. Native Windows/Radeon qualification remains pending.
 
-**Version 2.9.0 · published source and installer components · experimental software**
+**Version 2.9.1 · published source and installer components · experimental software**
+
+**2.9.1 native startup hotfix:** native title updates no longer starve interface timers. The browser trial remains the unchanged 2.9 edition. The previous [2.9.0 components](releases/2.9.0/) remain available for rollback; do not mix versions.
 
 Initialize and train experimental language models from local data, inspect live progress and export supported checkpoints.
 
@@ -37,7 +39,7 @@ A WebGPU API or adapter check is not a successful arithmetic test, a model-fit r
 
 ## Desktop package and installation
 
-The complete installer component set is in [releases/2.9.0](releases/2.9.0/). Download every file in that directory together, preserving subdirectories. Keep all numbered data parts beside [Start_Nexus.py](releases/2.9.0/Start_Nexus.py), then run `python Start_Nexus.py` with a supported Python interpreter. Read the [package guide](releases/2.9.0/README.md) before confirming installation. Each distributed data part is at most 10,000,000 bytes; the reconstructed application can be larger. Do not mix releases.
+The complete installer component set is in [releases/2.9.1](releases/2.9.1/). Download every file in that directory together, preserving subdirectories. Keep all numbered data parts beside [Start_Nexus.py](releases/2.9.1/Start_Nexus.py), then run `python Start_Nexus.py` with a supported Python interpreter. Read the [package guide](releases/2.9.1/README.md) before confirming installation. Each distributed data part is at most 10,000,000 bytes; the reconstructed application can be larger. Do not mix releases.
 
 Final packaging and isolated extraction checks passed independent review. Physical Windows, WebView2 and Radeon runtime qualification remains pending; no hardware acceptance or full-model qualification is claimed.
 
