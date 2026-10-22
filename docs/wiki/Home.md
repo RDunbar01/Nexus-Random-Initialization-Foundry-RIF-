@@ -1,10 +1,12 @@
 # Nexus Random Initialization Foundry — Home
 
-## [Try in your browser](<https://rdunbar01.github.io/Nexus-Random-Initialization-Foundry-RIF-/Nexus_Random_Initialization_Foundry_v2_9_Browser.html>) · pending activation
+## [Try in your browser](<https://rdunbar01.github.io/Nexus-Random-Initialization-Foundry-RIF-/Nexus_Random_Initialization_Foundry_v2_9_Browser.html>) · published browser entry
 
-Pages has not been activated or verified for this release. This is the planned HTTPS launch address, not a currently live trial. The repository HTML source does not execute in GitHub’s file viewer.
+The HTTPS browser entry is published and its initial screen has been checked. This is not full WebGPU, Windows or Radeon workload qualification. GitHub’s HTML source viewer does not execute the application.
 
-After publication, open the link and choose **Check WebGPU adapter**. The first-10-seconds goal is to inspect the UI and capability, not to download a model or guarantee training/inference. Loading depends on the connection and device.
+The native **2.9.1** package is published on main. This startup hotfix prevents native title updates from starving interface timers. The browser trial remains the unchanged **2.9 edition**. Prior releases remain available; do not mix their components. Package review and extraction checks passed, but physical Windows, WebView2, Radeon and full-model qualification remain outstanding.
+
+Open the link and choose **Check WebGPU adapter**. The first-10-seconds goal is to inspect the UI and capability, not to download a model or guarantee training/inference. Loading depends on the connection and device.
 
 **No Python is required for the HTML trial. A full download is required for the native PyTorch backend.** Keep the Python installer and every matching data part together. Python and PyTorch do not run in the HTML. WebGPU support, local inputs and model compatibility checks still apply.
 
@@ -16,11 +18,11 @@ After publication, open the link and choose **Check WebGPU adapter**. The first-
 
 Native Windows, WebView2, Radeon and full-model qualification remains pending. The helper’s gate and a successful runtime probe are not proof that every workload is supported.
 
-**2.9.0 · English**
+**2.9.1 · English**
 
-This is the reviewable Wiki source for the next release, not a claim that the live Wiki or browser trial is already published.
+Published release documentation. See the evidence and limits below.
 
-[English](Home.md) · [Français](Home.fr.md) · [日本語](Home.ja.md) · [한국어](Home.ko.md)
+[English](https://github.com/RDunbar01/Nexus-Random-Initialization-Foundry-RIF-/wiki/Home) · [Français](https://github.com/RDunbar01/Nexus-Random-Initialization-Foundry-RIF-/wiki/Home.fr) · [日本語](https://github.com/RDunbar01/Nexus-Random-Initialization-Foundry-RIF-/wiki/Home.ja) · [한국어](https://github.com/RDunbar01/Nexus-Random-Initialization-Foundry-RIF-/wiki/Home.ko)
 
 ## Purpose
 
@@ -30,13 +32,13 @@ Initialize experimental models, train with local data and inspect live progress.
 
 ### Browser edition
 
-[HTML](../../Nexus_Random_Initialization_Foundry_v2_9_Browser.html) · [README](../../README.md)
+[HTML](https://github.com/RDunbar01/Nexus-Random-Initialization-Foundry-RIF-/blob/main/Nexus_Random_Initialization_Foundry_v2_9_Browser.html) · [README](https://github.com/RDunbar01/Nexus-Random-Initialization-Foundry-RIF-/blob/main/README.md)
 
 Use a compatible WebGPU browser on HTTPS or a supported secure localhost origin. The single HTML file contains the custom JavaScript/WGSL engine. Import supported local files. No Python, PyTorch, native service, online dataset download or native GPU telemetry is available; runtime network requests are blocked. GitHub’s source viewer is not an executable trial.
 
 ### Installed edition
 
-Extract the complete release ZIP and keep the installer with all data parts. Every distributed component must be smaller than 20,000,000 bytes; reconstructed files and model downloads can be larger. Follow the matching package manifest and installer summary. Native PyTorch settings and tests belong to the installed edition, not the HTML-only edition.
+Download every file in the [2.9.1 package](https://github.com/RDunbar01/Nexus-Random-Initialization-Foundry-RIF-/tree/main/releases/2.9.1) together, retaining the supplied layout. Keep all numbered `.nxd` data parts beside [Start_Nexus.py](https://github.com/RDunbar01/Nexus-Random-Initialization-Foundry-RIF-/blob/main/releases/2.9.1/Start_Nexus.py) and run `python Start_Nexus.py` with the supported interpreter. Read the [matching guide](https://github.com/RDunbar01/Nexus-Random-Initialization-Foundry-RIF-/blob/main/releases/2.9.1/README.md) and installation summary before confirming. Each `.nxd` part is at most **10,000,000 bytes**; each individual distributed file, before installation, is smaller than **20,000,000 bytes**. The complete archive, reconstructed application, installed files and downloaded models can be larger. Do not mix releases. Native PyTorch settings and tests belong to the installed edition, not the HTML-only trial.
 
 ## Evidence and limits
 
@@ -51,3 +53,4 @@ Rich Dunbar / Nexus Emerging Technology, developed with AI-assisted coding. Exis
 ## Current release licensing
 
 This Nexus release is not offered under Apache License 2.0. Nexus-owned software may be used only for personal, non-commercial purposes. Any other use, including commercial use, modification or redistribution, requires express written consent from the rights holder. Third-party code, models, datasets and separately licensed components retain their own licenses and notices. Previously granted rights and rights that cannot lawfully be restricted remain unchanged.
+

@@ -1,10 +1,12 @@
 # Nexus Random Initialization Foundry — Accueil
 
-## [Essayer dans le navigateur](<https://rdunbar01.github.io/Nexus-Random-Initialization-Foundry-RIF-/Nexus_Random_Initialization_Foundry_v2_9_Browser.html>) · activation en attente
+## [Essayer dans le navigateur](<https://rdunbar01.github.io/Nexus-Random-Initialization-Foundry-RIF-/Nexus_Random_Initialization_Foundry_v2_9_Browser.html>) · accès navigateur publié
 
-Pages n’est pas encore activé ni vérifié pour cette version. Il s’agit de l’adresse HTTPS prévue, pas d’un essai actuellement en ligne. L’affichage du fichier HTML dans GitHub n’exécute pas l’application.
+La page HTTPS est publiée et son écran initial a été vérifié. Cela ne constitue pas une qualification complète des charges WebGPU, Windows ou Radeon. L’affichage du HTML dans GitHub n’exécute pas l’application.
 
-Après publication, ouvrez le lien et choisissez **Check WebGPU adapter**. L’objectif des dix premières secondes est d’examiner l’interface et les capacités du navigateur, pas de télécharger un modèle ni de garantir l’entraînement ou l’inférence. Le chargement dépend de la connexion et de l’appareil.
+Le paquet natif **2.9.1** est publié sur main. Ce correctif de démarrage empêche les mises à jour du titre natif de monopoliser les minuteries de l’interface. L’essai navigateur reste l’**édition 2.9 inchangée**. Les anciennes versions restent disponibles ; ne mélangez pas leurs composants. La revue du paquet et les contrôles d’extraction ont réussi, mais la qualification Windows, WebView2, Radeon et des modèles complets sur matériel réel reste à réaliser.
+
+Ouvrez le lien et choisissez **Check WebGPU adapter**. L’objectif des dix premières secondes est d’examiner l’interface et les capacités du navigateur, pas de télécharger un modèle ni de garantir l’entraînement ou l’inférence. Le chargement dépend de la connexion et de l’appareil.
 
 **L’essai HTML ne nécessite pas Python. Le moteur PyTorch natif exige le téléchargement complet.** Gardez l’installateur Python et toutes les parties de données de la même version ensemble. Python et PyTorch ne s’exécutent pas dans le HTML. La prise en charge de WebGPU, les fichiers locaux et les contrôles de compatibilité du modèle restent nécessaires.
 
@@ -16,11 +18,11 @@ Après publication, ouvrez le lien et choisissez **Check WebGPU adapter**. L’o
 
 La validation Windows, WebView2, Radeon et modèle complet reste en attente. Les restrictions de l’utilitaire et la réussite du test ne prouvent pas la prise en charge de toutes les charges de travail.
 
-**2.9.0 · Français**
+**2.9.1 · Français**
 
-Cette page est la source du wiki à relire pour la prochaine version. Elle ne signifie pas que le wiki public ou la version d’essai en ligne est déjà publié.
+Documentation de la version publiée. Consultez les preuves et limites ci-dessous.
 
-[English](Home.md) · [Français](Home.fr.md) · [日本語](Home.ja.md) · [한국어](Home.ko.md)
+[English](https://github.com/RDunbar01/Nexus-Random-Initialization-Foundry-RIF-/wiki/Home) · [Français](https://github.com/RDunbar01/Nexus-Random-Initialization-Foundry-RIF-/wiki/Home.fr) · [日本語](https://github.com/RDunbar01/Nexus-Random-Initialization-Foundry-RIF-/wiki/Home.ja) · [한국어](https://github.com/RDunbar01/Nexus-Random-Initialization-Foundry-RIF-/wiki/Home.ko)
 
 ## Objectif
 
@@ -30,13 +32,13 @@ Initialisez des modèles expérimentaux, entraînez-les sur des données locales
 
 ### Édition navigateur
 
-[HTML](../../Nexus_Random_Initialization_Foundry_v2_9_Browser.html) · [README](../../README.md)
+[HTML](https://github.com/RDunbar01/Nexus-Random-Initialization-Foundry-RIF-/blob/main/Nexus_Random_Initialization_Foundry_v2_9_Browser.html) · [README](https://github.com/RDunbar01/Nexus-Random-Initialization-Foundry-RIF-/blob/main/README.md)
 
 Utilisez un navigateur compatible WebGPU en HTTPS ou sur une origine localhost sécurisée prise en charge. Le fichier HTML unique contient le moteur JavaScript/WGSL personnalisé. Importez des fichiers locaux compatibles. Python, PyTorch, les services natifs, le téléchargement de jeux de données en ligne et la télémétrie GPU native ne sont pas disponibles ; les requêtes réseau de l’application sont bloquées. L’affichage du code sur GitHub n’exécute pas l’application.
 
 ### Édition installée
 
-Extrayez le ZIP complet et gardez l’installateur avec toutes ses parties de données. Chaque composant distribué doit faire moins de 20 000 000 octets ; les fichiers reconstruits et les modèles téléchargés peuvent être plus volumineux. Suivez le manifeste et le récapitulatif de l’installateur de cette version. Les réglages et tests PyTorch natifs concernent l’édition installée, pas l’édition HTML seule.
+Téléchargez ensemble tous les fichiers du [paquet 2.9.1](https://github.com/RDunbar01/Nexus-Random-Initialization-Foundry-RIF-/tree/main/releases/2.9.1), en conservant leur disposition. Gardez toutes les parties de données `.nxd` numérotées à côté de [Start_Nexus.py](https://github.com/RDunbar01/Nexus-Random-Initialization-Foundry-RIF-/blob/main/releases/2.9.1/Start_Nexus.py), puis lancez `python Start_Nexus.py` avec l’interpréteur compatible. Lisez le [guide correspondant](https://github.com/RDunbar01/Nexus-Random-Initialization-Foundry-RIF-/blob/main/releases/2.9.1/README.md) et le récapitulatif avant de confirmer. Chaque partie `.nxd` fait au plus **10 000 000 octets** ; chaque fichier distribué, avant installation, fait moins de **20 000 000 octets**. L’archive complète, l’application reconstruite, les fichiers installés et les modèles téléchargés peuvent être plus volumineux. Ne mélangez pas les versions. Les réglages et tests PyTorch natifs concernent l’édition installée, pas l’essai HTML seul.
 
 ## Mesures et limites
 
@@ -51,3 +53,4 @@ Rich Dunbar / Nexus Emerging Technology, avec l’aide d’outils de codage par 
 ## Licence de la version actuelle
 
 Cette version de Nexus n’est pas proposée sous la licence Apache 2.0. Le logiciel appartenant à Nexus ne peut être utilisé qu’à des fins personnelles et non commerciales. Toute autre utilisation, y compris commerciale, ainsi que toute modification ou redistribution, nécessite le consentement écrit exprès du titulaire des droits. Les codes, modèles, jeux de données tiers et composants sous licence distincte conservent leurs propres licences et mentions. Les droits déjà accordés et les droits qui ne peuvent légalement être restreints restent inchangés.
+
