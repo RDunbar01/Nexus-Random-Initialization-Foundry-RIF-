@@ -5,7 +5,7 @@
 This Nexus release is not offered under Apache License 2.0. Nexus-owned software may be used only for personal, non-commercial purposes. Any other use, including commercial use, modification or redistribution, requires express written consent from the rights holder. Third-party code, models, datasets and separately licensed components retain their own licenses and notices. Previously granted rights and rights that cannot lawfully be restricted remain unchanged.
 
 
-> Draft documentation staging: application packages and browser HTML are pending a later verified commit. Any proposed version or trial path below is not a shipped release or live trial. Do not merge until package and link checks pass.
+> Complete independently reviewed installer components and self-contained browser HTML are staged in this draft PR. This is not a published GitHub Release or live Pages deployment. Native Windows/Radeon qualification remains pending.
 
 **Version 2.9.0 · next-release staging · experimental software**
 
@@ -17,7 +17,7 @@ The green translucent progress dashboard and unified saveable log are retained. 
 
 **32,000 tokens/second peak on a Radeon RX 7900 XT** is developer-reported training throughput. It is not independently remeasured here, not a sustained-performance guarantee, and not chat-generation speed. The RX 7900 XT has a nominal 20 GB VRAM specification; available allocations depend on the runtime and other memory use. A hardware profile is not a measured benchmark score.
 
-The desktop release is being packaged with the Nexus AI-style installer: a consolidated change summary, one installation confirmation, determinate progress and reuse of compatible existing dependencies. Only verified completion should trigger app launch and installer closure; Windows launch behavior requires its own acceptance test.
+The desktop release is packaged with the Nexus AI-style installer: a consolidated change summary, one installation confirmation, determinate progress and reuse of compatible existing dependencies. Only verified completion should trigger app launch and installer closure; Windows launch behavior requires its own acceptance test.
 
 ## Browser trial: staged, not yet published
 
@@ -29,9 +29,9 @@ GPU API availability is not a successful arithmetic test or proof that a model f
 
 ## Desktop package and installation
 
-The staged desktop distribution is one ZIP containing the Python installer and its data parts. Extract the entire ZIP together before launching the installer; keep all parts beside the installer in the layout supplied by the package. Each distributed data component must be smaller than 20,000,000 bytes. The reconstructed application, installed files, downloaded model weights and total ZIP can be larger.
+The complete installer component set is in [releases/2.9.0](releases/2.9.0/). Download every file in that directory together, preserving subdirectories. Keep all numbered data parts beside [Start_Nexus.py](releases/2.9.0/Start_Nexus.py), then run `python Start_Nexus.py` with a supported Python interpreter. Read the [package guide](releases/2.9.0/README.md) before confirming installation. Each distributed data part is at most 10,000,000 bytes; the reconstructed application can be larger. Do not mix releases.
 
-The package entry point is `Start_Nexus.py`; keep `Nexus_payload.001.nxd`, `Nexus_payload.002.nxd` and all following parts alongside it. Run `python Start_Nexus.py` with the supported Python interpreter. The final package manifest is the authority for hashes and dependencies. Do not run an installer from a different release against these data parts. Read its change summary before confirming installation. Packaging and Windows acceptance are release gates, not implied by this README.
+Final packaging and isolated extraction checks passed independent review. Physical Windows, WebView2 and Radeon runtime qualification remains pending; no hardware acceptance or live deployment is claimed.
 
 ### Desktop prerequisites
 
