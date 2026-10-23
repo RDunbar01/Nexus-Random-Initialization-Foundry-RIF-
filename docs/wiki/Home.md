@@ -1,14 +1,33 @@
-# Nexus Random Initialization Foundry — Home
+# Nexus Random Initialization Foundry
 
-## [Try in your browser](<https://rdunbar01.github.io/Nexus-Random-Initialization-Foundry-RIF-/Nexus_Random_Initialization_Foundry_v2_9_Browser.html>) · published browser entry
+**Version 2.9.1**
 
-The HTTPS browser entry is published and its initial screen has been checked. This is not full WebGPU, Windows or Radeon workload qualification. GitHub’s HTML source viewer does not execute the application.
+Initialize experimental language models from scratch, train them on local data and export supported checkpoints.
 
-The native **2.9.1** package is published on main. This startup hotfix prevents native title updates from starving interface timers. The browser trial remains the unchanged **2.9 edition**. Prior releases remain available; do not mix their components. Package review and extraction checks passed, but physical Windows, WebView2, Radeon and full-model qualification remain outstanding.
+**[Try in your browser](https://rdunbar01.github.io/Nexus-Random-Initialization-Foundry-RIF-/Nexus_Random_Initialization_Foundry_v2_9_Browser.html)** · [Download the desktop components](https://github.com/RDunbar01/Nexus-Random-Initialization-Foundry-RIF-/tree/main/releases/2.9.1) · [README](https://github.com/RDunbar01/Nexus-Random-Initialization-Foundry-RIF-/blob/main/README.md)
 
-Open the link and choose **Check WebGPU adapter**. The first-10-seconds goal is to inspect the UI and capability, not to download a model or guarantee training/inference. Loading depends on the connection and device.
+Open the trial to inspect the interface and choose **Check WebGPU adapter**. No Python installation is needed. The aim is a quick first look; loading a model or completing a workload depends on the inputs and device.
 
-**No Python is required for the HTML trial. A full download is required for the native PyTorch backend.** Keep the Python installer and every matching data part together. Python and PyTorch do not run in the HTML. WebGPU support, local inputs and model compatibility checks still apply.
+Native package 2.9.1; browser edition 2.9.
+
+## What it does
+
+- Model initialization and local corpus-based training controls.
+- Live training statistics in a green translucent dashboard.
+- A unified progress log that can be saved before closing the page.
+- Separate custom WebGPU and installed PyTorch training paths.
+
+## Engineering contribution
+
+A local, inspectable workflow that connects model initialization, training progress and checkpoint export. It supports practical experiments with small language models without making a cloud training service a requirement.
+
+## Why a single HTML file?
+
+The browser edition packages its interface, JavaScript, CSS and WGSL kernels in one HTML file. This makes online trials easy to open, link to and inspect without a build step or runtime CDN. The file contains the browser engine, not model weights or the native PyTorch backend.
+
+Use a compatible WebGPU browser over HTTPS. Runtime network requests, native hardware monitoring and local-server bridges are disabled. Actual training or evaluation requires supported inputs. The native PyTorch backend requires the full download.
+
+[English](https://github.com/RDunbar01/Nexus-Random-Initialization-Foundry-RIF-/wiki/Home) · [Français](https://github.com/RDunbar01/Nexus-Random-Initialization-Foundry-RIF-/wiki/Home.fr) · [日本語](https://github.com/RDunbar01/Nexus-Random-Initialization-Foundry-RIF-/wiki/Home.ja) · [한국어](https://github.com/RDunbar01/Nexus-Random-Initialization-Foundry-RIF-/wiki/Home.ko)
 
 ## Python and native runtime requirements
 
@@ -18,11 +37,6 @@ Open the link and choose **Check WebGPU adapter**. The first-10-seconds goal is 
 
 Native Windows, WebView2, Radeon and full-model qualification remains pending. The helper’s gate and a successful runtime probe are not proof that every workload is supported.
 
-**2.9.1 · English**
-
-Published release documentation. See the evidence and limits below.
-
-[English](https://github.com/RDunbar01/Nexus-Random-Initialization-Foundry-RIF-/wiki/Home) · [Français](https://github.com/RDunbar01/Nexus-Random-Initialization-Foundry-RIF-/wiki/Home.fr) · [日本語](https://github.com/RDunbar01/Nexus-Random-Initialization-Foundry-RIF-/wiki/Home.ja) · [한국어](https://github.com/RDunbar01/Nexus-Random-Initialization-Foundry-RIF-/wiki/Home.ko)
 
 ## Purpose
 
@@ -46,11 +60,6 @@ CPU regression and static/DOM checks are not physical Windows/Radeon/WebGPU vali
 
 Developer-reported peak training throughput: **32,000 tokens/second on a Radeon RX 7900 XT**. Not independently reproduced here, not a sustained-performance guarantee and not chat-generation speed.
 
-## Credits and licensing
+## Use and attribution
 
-Rich Dunbar / Nexus Emerging Technology, developed with AI-assisted coding. Existing licenses and third-party research, code, model and dataset terms remain in force. This page grants no additional license.
-
-## Current release licensing
-
-This Nexus release is not offered under Apache License 2.0. Nexus-owned software may be used only for personal, non-commercial purposes. Any other use, including commercial use, modification or redistribution, requires express written consent from the rights holder. Third-party code, models, datasets and separately licensed components retain their own licenses and notices. Previously granted rights and rights that cannot lawfully be restricted remain unchanged.
-
+Rich Dunbar / Nexus Emerging Technology. Personal use and internal commercial testing and evaluation are permitted for Nexus-owned material. Distribution, modification, production deployment and other commercial use require express written consent. Third-party licenses and previously granted rights remain unchanged. [license](https://github.com/RDunbar01/Nexus-Random-Initialization-Foundry-RIF-/blob/main/LICENSE) · [evaluation permission (English)](https://github.com/RDunbar01/Nexus-Random-Initialization-Foundry-RIF-/blob/main/COMMERCIAL_EVALUATION_PERMISSION.md).

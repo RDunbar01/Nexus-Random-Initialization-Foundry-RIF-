@@ -1,0 +1,12 @@
+{
+  "file": "Nexus_Random_Initialization_Foundry_v2_9_Browser.html",
+  "bytes": 4760518,
+  "sha256": "ee9c78357955bcefdde863f6b6f98ed4e966a9b8c1abf31f7eb459460d9a2993",
+  "git_blob_sha": "076692fc05d9bffd39a89fcf3d103601344f4705",
+  "change": "Commercial testing and evaluation notice and linked permission only. Browser computation and native release payload are unchanged.",
+  "checks": {
+    "static_dependency_and_network_policy": "passed",
+    "full_dom_regression": "passed",
+    "physical_gpu_execution": "not_run"
+  }
+}

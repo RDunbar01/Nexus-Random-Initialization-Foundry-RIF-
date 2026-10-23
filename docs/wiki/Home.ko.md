@@ -1,14 +1,33 @@
-# Nexus Random Initialization Foundry — 홈
+# Nexus Random Initialization Foundry
 
-## [브라우저에서 체험하기](<https://rdunbar01.github.io/Nexus-Random-Initialization-Foundry-RIF-/Nexus_Random_Initialization_Foundry_v2_9_Browser.html>) · 브라우저 진입 페이지 게시됨
+**Version 2.9.1**
 
-HTTPS 브라우저 진입 페이지가 게시되었으며 초기 화면을 확인했습니다. 전체 WebGPU, Windows 또는 Radeon 작업 검증을 뜻하지는 않습니다. GitHub의 HTML 소스 보기에서는 앱이 실행되지 않습니다.
+실험용 언어 모델을 처음부터 초기화하고 로컬 데이터로 훈련하며 지원되는 체크포인트를 내보냅니다.
 
-네이티브 **2.9.1** 패키지는 main에 게시되었습니다. 이번 시작 수정으로 네이티브 제목 업데이트가 UI 타이머를 독점하지 않도록 했습니다. 브라우저 체험판은 변경 없는 **2.9 에디션**입니다. 이전 릴리스는 유지되지만 구성 요소를 섞지 마세요. 패키지 검토와 압축 해제 검사는 통과했으나 실제 Windows, WebView2, Radeon 및 전체 모델 검증은 아직 완료되지 않았습니다.
+**[브라우저에서 체험하기](https://rdunbar01.github.io/Nexus-Random-Initialization-Foundry-RIF-/Nexus_Random_Initialization_Foundry_v2_9_Browser.html)** · [데스크톱 구성 요소 다운로드](https://github.com/RDunbar01/Nexus-Random-Initialization-Foundry-RIF-/tree/main/releases/2.9.1) · [README](https://github.com/RDunbar01/Nexus-Random-Initialization-Foundry-RIF-/blob/main/README.md)
 
-링크를 열고 **Check WebGPU adapter**를 선택하세요. 처음 10초의 목표는 UI와 브라우저 기능을 확인하는 것이며, 모델 다운로드 완료나 학습·추론을 보장하는 것이 아닙니다. 로딩 시간은 연결 상태와 기기에 따라 달라집니다.
+체험 페이지에서 인터페이스를 살펴보고 **Check WebGPU adapter**를 선택하세요. Python을 설치할 필요가 없습니다. 빠르게 살펴보기 위한 시작점이며, 모델을 불러오거나 작업을 완료하는 시간은 입력과 기기에 따라 달라집니다.
 
-**HTML 체험판에는 Python이 필요하지 않습니다. 네이티브 PyTorch 백엔드에는 전체 다운로드가 필요합니다.** 같은 릴리스의 Python 설치 프로그램과 모든 데이터 조각을 함께 보관하세요. HTML 안에서 Python이나 PyTorch는 실행되지 않습니다. WebGPU 지원, 로컬 입력 파일 및 모델 호환성 확인은 별도로 필요합니다.
+네이티브 패키지 2.9.1, 브라우저 에디션 2.9.
+
+## 주요 기능
+
+- 모델 초기화와 로컬 말뭉치 기반 훈련 제어.
+- 반투명 녹색 대시보드의 실시간 훈련 통계.
+- 페이지를 닫기 전에 저장할 수 있는 통합 진행 로그.
+- 맞춤형 WebGPU와 설치형 PyTorch의 별도 훈련 경로.
+
+## 기술적 기여
+
+모델 초기화, 훈련 진행 상황과 체크포인트 내보내기를 연결하는 로컬 작업 흐름입니다. 각 단계를 확인할 수 있으며 클라우드 훈련 서비스 없이 소규모 언어 모델을 실험하도록 지원합니다.
+
+## 단일 HTML 파일을 사용하는 이유
+
+브라우저 에디션은 인터페이스, JavaScript, CSS와 WGSL 커널을 하나의 HTML 파일에 담습니다. 빌드 과정이나 실행 시 CDN 없이 온라인 체험을 열고, 링크를 공유하고, 내용을 살펴보기 위한 구성입니다. 이 파일에는 브라우저 엔진이 들어 있으며 모델 가중치나 네이티브 PyTorch 백엔드는 포함되지 않습니다.
+
+HTTPS에서 WebGPU 호환 브라우저를 사용하세요. 실행 중 네트워크 요청, 네이티브 하드웨어 모니터링, 로컬 서버 연결은 비활성화되어 있습니다. 실제 훈련이나 평가에는 지원되는 입력이 필요합니다. 네이티브 PyTorch 백엔드는 전체 다운로드가 필요합니다.
+
+[English](https://github.com/RDunbar01/Nexus-Random-Initialization-Foundry-RIF-/wiki/Home) · [Français](https://github.com/RDunbar01/Nexus-Random-Initialization-Foundry-RIF-/wiki/Home.fr) · [日本語](https://github.com/RDunbar01/Nexus-Random-Initialization-Foundry-RIF-/wiki/Home.ja) · [한국어](https://github.com/RDunbar01/Nexus-Random-Initialization-Foundry-RIF-/wiki/Home.ko)
 
 ## Python 및 네이티브 실행 환경 요구 사항
 
@@ -18,11 +37,6 @@ HTTPS 브라우저 진입 페이지가 게시되었으며 초기 화면을 확�
 
 실제 Windows, WebView2, Radeon 및 전체 모델 검증은 아직 완료되지 않았습니다. 도우미의 조건이나 검사 통과가 모든 작업의 지원을 입증하지는 않습니다.
 
-**2.9.1 · 한국어**
-
-게시된 릴리스 문서입니다. 아래 검증 범위와 제한을 확인하세요.
-
-[English](https://github.com/RDunbar01/Nexus-Random-Initialization-Foundry-RIF-/wiki/Home) · [Français](https://github.com/RDunbar01/Nexus-Random-Initialization-Foundry-RIF-/wiki/Home.fr) · [日本語](https://github.com/RDunbar01/Nexus-Random-Initialization-Foundry-RIF-/wiki/Home.ja) · [한국어](https://github.com/RDunbar01/Nexus-Random-Initialization-Foundry-RIF-/wiki/Home.ko)
 
 ## 목적
 
@@ -46,11 +60,6 @@ CPU 회귀 테스트와 정적 분석/DOM 검사는 실제 Windows/Radeon/WebGPU
 
 개발자가 보고한 최대 학습 처리량은 **Radeon RX 7900 XT에서 초당 32,000토큰**입니다. 여기서 독립적으로 재현한 수치가 아니며 지속적인 처리량을 보장하거나 채팅 생성 속도를 나타내지 않습니다.
 
-## 제작 및 라이선스
+## 이용 조건 및 제작
 
-Rich Dunbar / Nexus Emerging Technology가 AI 지원 코딩으로 개발했습니다. 기존 라이선스와 제3자 연구, 코드, 모델, 데이터셋의 이용 조건이 계속 적용됩니다. 이 페이지는 추가적인 이용 권한을 부여하지 않습니다.
-
-## 현재 릴리스 라이선스
-
-이 Nexus 릴리스는 Apache License 2.0으로 제공되지 않습니다. Nexus가 권리를 보유한 소프트웨어는 개인적이고 비상업적인 목적으로만 사용할 수 있습니다. 상업적 이용을 포함한 그 밖의 이용, 수정 또는 재배포에는 권리자의 명시적인 서면 동의가 필요합니다. 제3자 코드, 모델, 데이터 세트 및 별도로 라이선스된 구성 요소에는 각자의 라이선스와 고지가 계속 적용됩니다. 이미 부여된 권리와 법적으로 제한할 수 없는 권리는 변경되지 않습니다.
-
+Rich Dunbar / Nexus Emerging Technology. Nexus가 권리를 보유한 자료는 개인적 이용과 내부 상업적 테스트 및 평가에 사용할 수 있습니다. 배포, 수정, 운영 환경 배포 및 그 밖의 상업적 이용에는 명시적인 서면 동의가 필요합니다. 제3자 라이선스와 이미 부여된 권리는 변경되지 않습니다. [라이선스](https://github.com/RDunbar01/Nexus-Random-Initialization-Foundry-RIF-/blob/main/LICENSE) · [평가 추가 허가(영문)](https://github.com/RDunbar01/Nexus-Random-Initialization-Foundry-RIF-/blob/main/COMMERCIAL_EVALUATION_PERMISSION.md).

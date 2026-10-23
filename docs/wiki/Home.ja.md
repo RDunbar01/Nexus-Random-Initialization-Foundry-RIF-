@@ -1,14 +1,33 @@
-# Nexus Random Initialization Foundry — ホーム
+# Nexus Random Initialization Foundry
 
-## [ブラウザーで試す](<https://rdunbar01.github.io/Nexus-Random-Initialization-Foundry-RIF-/Nexus_Random_Initialization_Foundry_v2_9_Browser.html>) · ブラウザー入口を公開済み
+**Version 2.9.1**
 
-HTTPS のブラウザー入口を公開し、初期画面を確認しました。WebGPU・Windows・Radeon の全ワークロード検証ではありません。GitHub の HTML ソース表示ではアプリは実行されません。
+実験用の言語モデルを一から初期化し、ローカルデータで学習させ、対応するチェックポイントをエクスポートします。
 
-ネイティブ **2.9.1** パッケージは main で公開済みです。この起動時の修正により、ネイティブのタイトル更新が UI タイマーを占有しなくなりました。ブラウザー試用版は変更のない **2.9 エディション**です。 以前のリリースは保持されていますが、部品を混在させないでください。パッケージのレビューと展開テストには合格しています。実機 Windows・WebView2・Radeon およびフルモデルの検証は未完了です。
+**[ブラウザーで試す](https://rdunbar01.github.io/Nexus-Random-Initialization-Foundry-RIF-/Nexus_Random_Initialization_Foundry_v2_9_Browser.html)** · [デスクトップ用コンポーネントをダウンロード](https://github.com/RDunbar01/Nexus-Random-Initialization-Foundry-RIF-/tree/main/releases/2.9.1) · [README](https://github.com/RDunbar01/Nexus-Random-Initialization-Foundry-RIF-/blob/main/README.md)
 
-リンクを開いて **Check WebGPU adapter** を選択してください。最初の10秒で目指すのは UI とブラウザー機能の確認であり、モデルのダウンロード完了や学習・推論の保証ではありません。読み込み時間は回線と端末に依存します。
+試用ページを開いてインターフェースを確認し、**Check WebGPU adapter** を選択してください。Python のインストールは不要です。短時間で概要を確認するための入口です。モデルの読み込みや処理の完了時間は、入力と端末によって異なります。
 
-**HTML 試用版に Python は不要です。ネイティブ PyTorch バックエンドには完全なダウンロードが必要です。** 同じリリースの Python インストーラーとすべての分割データを一緒に保持してください。HTML 内で Python や PyTorch は実行されません。WebGPU 対応、ローカル入力、モデル互換性の確認は別途必要です。
+ネイティブパッケージ 2.9.1、ブラウザー版 2.9。
+
+## 主な機能
+
+- モデルの初期化とローカルコーパスによる学習制御。
+- 半透明の緑色ダッシュボードに表示するリアルタイム学習統計。
+- ページを閉じる前に保存できる統合進捗ログ。
+- 独自 WebGPU とインストール型 PyTorch の独立した学習経路。
+
+## 技術的な貢献
+
+モデルの初期化、学習進捗、チェックポイントの出力をつなぐ、ローカルで確認可能なワークフローです。クラウドの学習サービスを必須にせず、小規模な言語モデルの実験を支えます。
+
+## 単一 HTML ファイルを使う理由
+
+ブラウザー版は、インターフェース、JavaScript、CSS、WGSL カーネルを単一の HTML ファイルにまとめています。ビルド手順や実行時の CDN を必要とせず、オンラインで開き、リンクを共有し、内容を確認しやすくするための構成です。ファイルに含まれるのはブラウザー用エンジンであり、モデルの重みやネイティブ PyTorch バックエンドではありません。
+
+HTTPS 上で WebGPU 対応ブラウザーを使用してください。実行時のネットワーク要求、ネイティブのハードウェア監視、ローカルサーバーとのブリッジは無効です。実際の学習や評価には対応する入力が必要です。ネイティブ PyTorch バックエンドには完全版のダウンロードが必要です。
+
+[English](https://github.com/RDunbar01/Nexus-Random-Initialization-Foundry-RIF-/wiki/Home) · [Français](https://github.com/RDunbar01/Nexus-Random-Initialization-Foundry-RIF-/wiki/Home.fr) · [日本語](https://github.com/RDunbar01/Nexus-Random-Initialization-Foundry-RIF-/wiki/Home.ja) · [한국어](https://github.com/RDunbar01/Nexus-Random-Initialization-Foundry-RIF-/wiki/Home.ko)
 
 ## Python とネイティブ実行環境の要件
 
@@ -18,11 +37,6 @@ HTTPS のブラウザー入口を公開し、初期画面を確認しました�
 
 実機 Windows・WebView2・Radeon およびフルモデルの検証は未完了です。ヘルパーの条件やテスト成功は、すべての処理負荷への対応を証明しません。
 
-**2.9.1 · 日本語**
-
-公開リリースのドキュメントです。下記の検証範囲と制限を確認してください。
-
-[English](https://github.com/RDunbar01/Nexus-Random-Initialization-Foundry-RIF-/wiki/Home) · [Français](https://github.com/RDunbar01/Nexus-Random-Initialization-Foundry-RIF-/wiki/Home.fr) · [日本語](https://github.com/RDunbar01/Nexus-Random-Initialization-Foundry-RIF-/wiki/Home.ja) · [한국어](https://github.com/RDunbar01/Nexus-Random-Initialization-Foundry-RIF-/wiki/Home.ko)
 
 ## 目的
 
@@ -46,11 +60,6 @@ CPU 回帰テストや静的解析・DOM テストは、実機の Windows/Radeon
 
 開発者が報告した学習時のピークは **Radeon RX 7900 XT で毎秒 32,000 トークン**です。ここで独立に再現した数値ではなく、持続速度の保証やチャット生成速度を示すものでもありません。
 
-## クレジットとライセンス
+## 利用条件とクレジット
 
-Rich Dunbar / Nexus Emerging Technology による、AI 支援コーディングを利用した開発です。既存のライセンス、および第三者の研究・コード・モデル・データセットの利用条件が引き続き適用されます。このページは新たな利用許諾を付与しません。
-
-## 現行リリースのライセンス
-
-この Nexus リリースは Apache License 2.0 では提供されません。Nexus が権利を持つソフトウェアは、個人的かつ非商用の目的に限り使用できます。商用利用を含むその他の利用、改変または再配布には、権利者の明示的な書面による同意が必要です。第三者のコード、モデル、データセットおよび別途ライセンスされた構成要素には、それぞれのライセンスと表示が引き続き適用されます。既に付与された権利および法律上制限できない権利は変更されません。
-
+Rich Dunbar / Nexus Emerging Technology. Nexus が権利を持つものについては、個人利用および社内での商用テスト・評価が許可されます。配布、改変、本番環境への導入、その他の商用利用には、明示的な書面による同意が必要です。第三者のライセンスと既に付与された権利は変更されません。 [ライセンス](https://github.com/RDunbar01/Nexus-Random-Initialization-Foundry-RIF-/blob/main/LICENSE) · [評価用の追加許諾（英語）](https://github.com/RDunbar01/Nexus-Random-Initialization-Foundry-RIF-/blob/main/COMMERCIAL_EVALUATION_PERMISSION.md).

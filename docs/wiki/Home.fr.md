@@ -1,14 +1,33 @@
-# Nexus Random Initialization Foundry — Accueil
+# Nexus Random Initialization Foundry
 
-## [Essayer dans le navigateur](<https://rdunbar01.github.io/Nexus-Random-Initialization-Foundry-RIF-/Nexus_Random_Initialization_Foundry_v2_9_Browser.html>) · accès navigateur publié
+**Version 2.9.1**
 
-La page HTTPS est publiée et son écran initial a été vérifié. Cela ne constitue pas une qualification complète des charges WebGPU, Windows ou Radeon. L’affichage du HTML dans GitHub n’exécute pas l’application.
+Initialiser des modèles de langage expérimentaux, les entraîner sur des données locales et exporter les points de contrôle pris en charge.
 
-Le paquet natif **2.9.1** est publié sur main. Ce correctif de démarrage empêche les mises à jour du titre natif de monopoliser les minuteries de l’interface. L’essai navigateur reste l’**édition 2.9 inchangée**. Les anciennes versions restent disponibles ; ne mélangez pas leurs composants. La revue du paquet et les contrôles d’extraction ont réussi, mais la qualification Windows, WebView2, Radeon et des modèles complets sur matériel réel reste à réaliser.
+**[Essayer dans le navigateur](https://rdunbar01.github.io/Nexus-Random-Initialization-Foundry-RIF-/Nexus_Random_Initialization_Foundry_v2_9_Browser.html)** · [Télécharger les composants de bureau](https://github.com/RDunbar01/Nexus-Random-Initialization-Foundry-RIF-/tree/main/releases/2.9.1) · [README](https://github.com/RDunbar01/Nexus-Random-Initialization-Foundry-RIF-/blob/main/README.md)
 
-Ouvrez le lien et choisissez **Check WebGPU adapter**. L’objectif des dix premières secondes est d’examiner l’interface et les capacités du navigateur, pas de télécharger un modèle ni de garantir l’entraînement ou l’inférence. Le chargement dépend de la connexion et de l’appareil.
+Ouvrez la version d’essai pour examiner l’interface et choisissez **Check WebGPU adapter**. Aucune installation de Python n’est nécessaire. L’objectif est un premier aperçu rapide ; le chargement d’un modèle et l’exécution d’une tâche dépendent des données et de l’appareil.
 
-**L’essai HTML ne nécessite pas Python. Le moteur PyTorch natif exige le téléchargement complet.** Gardez l’installateur Python et toutes les parties de données de la même version ensemble. Python et PyTorch ne s’exécutent pas dans le HTML. La prise en charge de WebGPU, les fichiers locaux et les contrôles de compatibilité du modèle restent nécessaires.
+Paquet natif 2.9.1 ; édition navigateur 2.9.
+
+## Fonctionnalités
+
+- Initialisation des modèles et commandes d’entraînement sur corpus local.
+- Statistiques d’entraînement en direct dans un tableau de bord vert translucide.
+- Journal de progression unifié, enregistrable avant de fermer la page.
+- Parcours d’entraînement distincts : WebGPU personnalisé et PyTorch installé.
+
+## Contribution technique
+
+Un parcours local et inspectable reliant l’initialisation, le suivi de l’entraînement et l’export des points de contrôle. Il permet d’expérimenter avec de petits modèles de langage sans imposer un service d’entraînement dans le cloud.
+
+## Pourquoi un seul fichier HTML ?
+
+L’édition navigateur réunit l’interface, JavaScript, CSS et les noyaux WGSL dans un seul fichier HTML. Ce choix facilite les essais en ligne, le partage du lien et l’inspection, sans compilation ni CDN à l’exécution. Le fichier contient le moteur navigateur, pas les poids des modèles ni le backend PyTorch natif.
+
+Utilisez un navigateur compatible WebGPU en HTTPS. Les requêtes réseau à l’exécution, la surveillance matérielle native et les passerelles vers un serveur local sont désactivées. L’entraînement ou l’évaluation exige des entrées prises en charge. Le backend PyTorch natif nécessite le téléchargement complet.
+
+[English](https://github.com/RDunbar01/Nexus-Random-Initialization-Foundry-RIF-/wiki/Home) · [Français](https://github.com/RDunbar01/Nexus-Random-Initialization-Foundry-RIF-/wiki/Home.fr) · [日本語](https://github.com/RDunbar01/Nexus-Random-Initialization-Foundry-RIF-/wiki/Home.ja) · [한국어](https://github.com/RDunbar01/Nexus-Random-Initialization-Foundry-RIF-/wiki/Home.ko)
 
 ## Versions de Python et environnement natif
 
@@ -18,11 +37,6 @@ Ouvrez le lien et choisissez **Check WebGPU adapter**. L’objectif des dix prem
 
 La validation Windows, WebView2, Radeon et modèle complet reste en attente. Les restrictions de l’utilitaire et la réussite du test ne prouvent pas la prise en charge de toutes les charges de travail.
 
-**2.9.1 · Français**
-
-Documentation de la version publiée. Consultez les preuves et limites ci-dessous.
-
-[English](https://github.com/RDunbar01/Nexus-Random-Initialization-Foundry-RIF-/wiki/Home) · [Français](https://github.com/RDunbar01/Nexus-Random-Initialization-Foundry-RIF-/wiki/Home.fr) · [日本語](https://github.com/RDunbar01/Nexus-Random-Initialization-Foundry-RIF-/wiki/Home.ja) · [한국어](https://github.com/RDunbar01/Nexus-Random-Initialization-Foundry-RIF-/wiki/Home.ko)
 
 ## Objectif
 
@@ -46,11 +60,6 @@ Les tests CPU et les contrôles statiques/DOM ne valident pas l’exécution sur
 
 Pic de débit d’entraînement déclaré par le développeur : **32 000 jetons/seconde sur Radeon RX 7900 XT**. Il n’a pas été reproduit indépendamment ici, ne garantit pas un débit soutenu et ne mesure pas la génération conversationnelle.
 
-## Crédits et licences
+## Utilisation et attribution
 
-Rich Dunbar / Nexus Emerging Technology, avec l’aide d’outils de codage par IA. Les licences existantes et les conditions applicables aux recherches, au code, aux modèles et aux données tiers restent en vigueur. Cette page n’accorde aucune licence supplémentaire.
-
-## Licence de la version actuelle
-
-Cette version de Nexus n’est pas proposée sous la licence Apache 2.0. Le logiciel appartenant à Nexus ne peut être utilisé qu’à des fins personnelles et non commerciales. Toute autre utilisation, y compris commerciale, ainsi que toute modification ou redistribution, nécessite le consentement écrit exprès du titulaire des droits. Les codes, modèles, jeux de données tiers et composants sous licence distincte conservent leurs propres licences et mentions. Les droits déjà accordés et les droits qui ne peuvent légalement être restreints restent inchangés.
-
+Rich Dunbar / Nexus Emerging Technology. L’usage personnel ainsi que les tests et évaluations commerciaux internes sont autorisés pour les éléments appartenant à Nexus. La distribution, la modification, le déploiement en production et les autres usages commerciaux nécessitent un consentement écrit exprès. Les licences tierces et les droits déjà accordés restent inchangés. [licence](https://github.com/RDunbar01/Nexus-Random-Initialization-Foundry-RIF-/blob/main/LICENSE) · [autorisation d’évaluation (en anglais)](https://github.com/RDunbar01/Nexus-Random-Initialization-Foundry-RIF-/blob/main/COMMERCIAL_EVALUATION_PERMISSION.md).
