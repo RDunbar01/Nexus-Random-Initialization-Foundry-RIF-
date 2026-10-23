@@ -1,13 +1,20 @@
 {
   "file": "Nexus_Random_Initialization_Foundry_v2_9_Browser.html",
-  "bytes": 4760565,
-  "sha256": "db2f4a635b588b2d1ce7b9236a021337e9c1bf013f757660511b0ba6eb35fb27",
-  "git_blob_sha": "848a718ff478f72f92dae12104f3623d91fcc1d0",
-  "change": "Correct four browser-only title assignments to the current RIF 2.9 Browser Trial identity. Computation, embedded historical snapshots and native release payload are unchanged.",
+  "bytes": 4763636,
+  "sha256": "eaa5d280d47b6413c7f0f88c2d6f601b188fd84223080d34b585a126ff203d47",
+  "git_blob_sha": "a87280fc40c726433dfd3369ffad32d3a902a29d",
+  "browserVersion": "2.9",
+  "presentationRevision": 1,
+  "nativeVersion": "2.9.1",
+  "nativePayloadChanged": false,
+  "baseCommit": "9f0ec5ac9014ca9194d40e5aa94fe1461c9674f9",
+  "change": "Replace opening trial banner with integrated Settings diagnostics and license; place product logo in actual sidebar. Existing onboarding, consent, engine and local-data paths retained.",
   "checks": {
-    "static_dependency_and_network_policy": "passed",
-    "full_dom_regression": "passed",
+    "freshStorageDOM": "passed; explicit notice acceptance only in isolated test fixtures",
+    "settingsNavigation": "passed",
+    "diagnosticsAndLicense": "passed",
+    "runtimeNetworkRequests": 0,
     "physical_gpu_execution": "not_run",
-    "settled_title_40_seconds": "passed_jsdom_mock_adapter"
+    "realBrowserRendering": "pending live deployment; local Chromium launch blocked by sandbox socket policy"
   }
 }
