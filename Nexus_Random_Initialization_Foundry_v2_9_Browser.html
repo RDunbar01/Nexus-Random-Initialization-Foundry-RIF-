@@ -8987,11 +8987,39 @@ note(capability());
 box.querySelector('[data-check]').onclick=async()=>{if(!window.isSecureContext||!navigator.gpu){note(capability());return;}try{const a=await navigator.gpu.requestAdapter({powerPreference:'high-performance'});if(!a)throw Error('No WebGPU adapter was returned');note('WebGPU adapter available. Maximum storage binding: '+a.limits.maxStorageBufferBindingSize+' bytes. This is a per-buffer limit, not total VRAM; no throughput has been measured.');}catch(e){note('Adapter check failed: '+e.message);}};
 box.querySelector('[data-log]').onclick=()=>{const payload={...trial,corpusBytes:undefined,secureContext:!!window.isSecureContext,webgpuAPI:!!navigator.gpu,physicalGPUTested:false};const url=URL.createObjectURL(new Blob([JSON.stringify(payload,null,2)],{type:'application/json'}));const a=document.createElement('a');a.href=url;a.download='Nexus_'+trial.kind+'_Browser_Diagnostics.json';a.click();setTimeout(()=>URL.revokeObjectURL(url),1000);};
 if(trial.kind==='recovery'){box.querySelector('[data-corpus-label]').hidden=false;box.querySelector('[data-corpus]').onchange=async e=>{const f=e.target.files[0];if(!f){trial.corpusBytes=null;note('Corpus selection cancelled or cleared.');return;}try{if(f.size>20_000_000)throw Error('Original bundled corpus ZIP must be under 20 MB. Larger custom corpora use the studio import workflow.');const bytes=new Uint8Array(await f.arrayBuffer());trial.corpusBytes=bytes;note('Corpus ZIP selected locally. The recovery engine will verify its hash and manifest before use.');}catch(e){trial.corpusBytes=null;note(e.message);}};}
-const style=document.createElement('style');style.textContent='#nexusBrowserTrial{display:block!important;position:relative;z-index:20;margin:12px 16px 16px 245px;padding:16px;border:1px solid #57db9599;border-radius:12px;background:#071d16e8;color:#e5fff1;font:14px/1.5 system-ui}#nexusBrowserTrial p{margin:8px 0}#nexusBrowserTrial button{margin:5px;padding:8px}body.nx-crossmode #nexusBrowserTrial{display:block!important;margin:12px auto;max-width:1500px} [data-browser-unsupported]{display:none!important}@media(max-width:750px){#nexusBrowserTrial{margin:12px}}';document.head.append(style);document.body.prepend(box);
+const style=document.createElement('style');style.textContent='#nexusBrowserTrial{display:block!important;position:relative;z-index:20;margin:12px 16px 16px 245px;padding:16px;border:1px solid #57db9599;border-radius:12px;background:#071d16e8;color:#e5fff1;font:14px/1.5 system-ui}#nexusBrowserTrial p{margin:8px 0}#nexusBrowserTrial button{margin:5px;padding:8px}body.nx-crossmode #nexusBrowserTrial{display:block!important;margin:12px auto;max-width:1500px} [data-browser-unsupported]{display:none!important}@media(max-width:750px){#nexusBrowserTrial{margin:12px}}';document.head.append(style);window.NexusBrowserTrialPanel=box;
 const nativeSelectors='#nxNativeBackendPanel,#nexusNativePanel,[data-native-only],[data-native-sweep],[data-recheck],[data-recovery],[data-adapter],[data-native],[data-monitor],[data-url],[data-session]';
 function disableDesktop(){for(const e of document.querySelectorAll(nativeSelectors)){if(e.matches('input[type=checkbox]'))e.checked=false;e.disabled=true;const container=e.closest('details')||e.closest('label')||e;container.setAttribute('data-browser-unsupported','');}for(const e of document.querySelectorAll('[href]')){if(/\.py(?:$|[?#])|\.cmd(?:$|[?#])/.test(e.getAttribute('href')||'')){e.setAttribute('data-browser-unsupported','');}}const p=document.querySelector('#nexusCrossEngineBenchmark');if(p){const upload=[...p.querySelectorAll('input[type=file]')];for(const x of upload)x.closest('label')?.setAttribute('data-browser-unsupported','');}}
 disableDesktop();
 trial.capability=capability;
 })();
 
-(function(){const icon=document.createElement("img");icon.src=document.querySelector("link[rel=icon]").href;icon.alt="Nexus application icon";icon.width=64;icon.height=64;icon.style.cssText="float:left;margin-right:12px";document.getElementById("nexusBrowserTrial").prepend(icon);})();</script></body></html>
+/* Browser presentation revision 1. No engine, onboarding, or consent changes. */
+(function(){'use strict';
+ const trial=window.NexusBrowserTrial,box=window.NexusBrowserTrialPanel;
+ if(!box||!['recovery','foundry','adapter'].includes(trial.kind))return;
+ trial.presentationRevision=1;
+ const rules=document.createElement('style');rules.id='nexusStudioTrialPresentation';
+ rules.textContent=`#nexusBrowserTrial{margin:0;padding:14px;border:1px solid currentColor;border-color:var(--rs-border,var(--line,#79c4a544));border-radius:12px;background:transparent;color:inherit;max-width:100%;min-width:0;box-sizing:border-box;overflow-wrap:anywhere}#nexusBrowserTrial input{max-width:100%;box-sizing:border-box}#nexusBrowserTrial button{max-width:100%;white-space:normal}#nexusBrowserTrialDetails{margin:16px 0;min-width:0;max-width:100%}#nexusBrowserTrialDetails>summary{cursor:pointer;font-weight:600;margin-bottom:10px}.rsLogo.nexusStudioLogo,.wzLogo.nexusStudioLogo{display:block!important;width:48px!important;height:48px!important;padding:0!important;border:0!important;background:none!important;box-shadow:none!important;flex:0 0 48px}.nexusStudioLogo img{display:block;width:48px;height:48px;object-fit:contain}.nexusAdapterBrand{display:flex;align-items:center;gap:12px}.nexusAdapterBrand strong{margin:0!important}.nexusAdapterBrand .nexusStudioLogo{flex:0 0 48px}.nexusAdapterBrand{margin-bottom:16px}`;
+ document.head.append(rules);
+ function mount(){
+  const target=document.getElementById({recovery:'rsSettings',foundry:'wzSettings',adapter:'nxSettings'}[trial.kind]);
+  const brand=trial.kind==='adapter'?document.querySelector('aside>strong'):document.querySelector(trial.kind==='recovery'?'.rsLogo':'.wzLogo');
+  if(!target||!brand)return false;
+  const icon=document.createElement('img');icon.src=document.querySelector('link[rel=icon]').href;icon.alt='Nexus '+trial.product+' logo';icon.width=48;icon.height=48;
+  if(trial.kind==='adapter'){
+   const row=document.createElement('div');row.className='nexusAdapterBrand';const holder=document.createElement('span');holder.className='nexusStudioLogo';holder.append(icon);brand.before(row);row.append(holder,brand);
+  }else{brand.replaceChildren(icon);brand.classList.add('nexusStudioLogo');brand.removeAttribute('aria-hidden');}
+  if(trial.kind==='foundry'){const version=document.querySelector('.wzBrand small span');if(version)version.textContent='Browser edition '+trial.version;}
+  const details=document.createElement('details');details.id='nexusBrowserTrialDetails';details.open=true;
+  const summary=document.createElement('summary');summary.textContent='Browser trial · diagnostics and license';details.append(summary,box);
+  // Put the tools after the existing Settings heading, not before the application.
+  const heading=target.querySelector(':scope > h1, :scope > .rsSettingsHeader');if(heading)heading.after(details);else target.prepend(details);
+  delete window.NexusBrowserTrialPanel;
+  return true;
+ }
+ // These studios construct their actual sidebar during DOMContentLoaded.
+ function ready(){if(mount())return;const observer=new MutationObserver(()=>{if(mount())observer.disconnect();});observer.observe(document.body,{childList:true,subtree:true});}
+ if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',ready,{once:true});else ready();
+})();
+</script></body></html>
